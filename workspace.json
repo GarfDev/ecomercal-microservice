@@ -1,6 +1,33 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "session-management": {
+      "projectType": "application",
+      "root": "apps/session-management",
+      "sourceRoot": "apps/session-management",
+      "targets": {
+        "build": {
+          "executor": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/session-management",
+            "main": "apps/session-management/main.go"
+          }
+        },
+        "serve": {
+          "executor": "@nx-go/nx-go:serve",
+          "options": {
+            "main": "apps/session-management/main.go"
+          }
+        },
+        "test": {
+          "executor": "@nx-go/nx-go:test"
+        },
+        "lint": {
+          "executor": "@nx-go/nx-go:lint"
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }

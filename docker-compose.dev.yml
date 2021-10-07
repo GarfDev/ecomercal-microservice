@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-reverse-proxy
+    volumes:
+      - ./configs/nginx/:/etc/nginx/
+    ports:
+      - 80:80
+      - 443:443
