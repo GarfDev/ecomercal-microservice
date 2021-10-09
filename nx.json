@@ -15,6 +15,9 @@
   "projects": {
     "session-management": {
       "tags": ["go"]
+    },
+    "user-service": {
+      "tags": []
     }
   }
 }

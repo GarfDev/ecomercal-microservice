@@ -12,7 +12,7 @@ import (
 )
 
 type Session struct {
-	IP   string `json:"id"`   // real_ip
+	IP   string `json:"ip"`   // real_ip
 	UUID string `json:"uuid"` // user_id
 	CID  string `json:"cid"`  // card_id
 }
@@ -54,13 +54,13 @@ func e(c *gin.Context) {
 
 	jewPlaintextToken, err := enc.Encrypt(jsonData)
 	if err != nil {
-		c.String(400, err.Error())
+		c.String(200, err.Error())
 		return
 	}
 
 	serialized, err := jewPlaintextToken.CompactSerialize()
 	if err != nil {
-		c.String(400, err.Error())
+		c.String(200, err.Error())
 		return
 	}
 
@@ -78,13 +78,13 @@ func v(c *gin.Context) {
 
 	jwe, err := jose.ParseEncrypted(token)
 	if err != nil {
-		c.String(400, err.Error())
+		c.String(200, err.Error())
 		return
 	}
 
 	decrypted, err := jwe.Decrypt("mypassphrase")
 	if err != nil {
-		c.String(400, err.Error())
+		c.String(200, err.Error())
 		return
 	}
 
